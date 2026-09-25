@@ -3,6 +3,13 @@ git branch
 git checkout
 git pull
 git push
+The -u origin lesson2 is only needed because this is the first time that we're pushing the lesson2 branch to GitHub
+(it tells GitHub to make this new branch on the remote).
+After this, you should only run git push.
+
 git merge
 git rebase
 git fetch
+git add
+git status
+git log
