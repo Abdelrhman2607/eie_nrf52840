@@ -10,6 +10,7 @@
 #include "BTN.h"
 #include "LED.h"
 
+#define SLEEP_MS 100
 #define STEP_DELAY_MS 100
 
 int main(void) {
@@ -21,10 +22,11 @@ int main(void) {
   }
 
   while (1) {
-    for (uint8_t duty_cycle = 0; duty_cycle <= 100; duty_cycle += 10){
-      LED_pwm(LED0, duty_cycle);
-      k_msleep(STEP_DELAY_MS);
+    if (BTN_check_clear_pressed(BTN0)){
+      LED_toggle(LED0);
+      printk("Button 0 pressed\n");
     }
+    k_msleep(SLEEP_MS);
   }
   return 0;
 }
